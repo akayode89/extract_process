@@ -30,10 +30,12 @@ def extract_file(zip_file_path, target_dir):
         for csv_file in csv_files:
             zip_ref.extract(csv_file, target_dir)
             print(f"Extracted '{csv_file}' to '{target_dir}'")
+    #Remove the zip file
+    os.remove(zip_file)
 
 if __name__ == "__main__":
     # Example usage
-    zip_file = 'C:\\Users\\ajkay\\OneDrive\\Documents\\src\\Instacart-mkt-basket.zip'
-    output_dir = 'C:\\Users\\ajkay\\OneDrive\\Documents\\tgt'
+    zip_file = 'C:\\Users\\ajkay\\OneDrive\\Desktop\\Data\\src\\archive.zip'
+    output_dir = 'C:\\Users\\ajkay\\OneDrive\\Desktop\\Data\\tgt'
 
     extract_file(zip_file, output_dir)

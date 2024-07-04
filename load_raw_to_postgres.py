@@ -1,4 +1,4 @@
-def load_postgres(src_path,password,host):
+def load_postgres(src_path,password,host,database):
     import pandas as pd
     import re
     import os
@@ -9,7 +9,7 @@ def load_postgres(src_path,password,host):
 
     files = os.listdir()
 
-    engine = create_engine(f"postgresql+psycopg2://postgres:{password}@localhost:{host}/raw_instacart")
+    engine = create_engine(f"postgresql+psycopg2://postgres:{password}@localhost:{host}/{database}")
 
     for file in files:
         try:
@@ -25,8 +25,9 @@ def load_postgres(src_path,password,host):
 
 if __name__ == "__main__":
     # Example usage
-    src_path = 'C:\\Users\\ajkay\\OneDrive\\Documents\\tgt'
+    src_path = 'C:\\Users\\ajkay\\OneDrive\\Desktop\\Data\\tgt'
     password = 'password1234'
     host = '5433'
+    database = 'formular1'
 
-    load_postgres(src_path,password,host)
+    load_postgres(src_path,password,host,database)
